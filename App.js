@@ -16,6 +16,8 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
+  NativeModules,
 } from 'react-native';
 
 import {
@@ -60,6 +62,15 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  const {CalendarModule} = NativeModules;
+
+  const callNative = function () {
+    CalendarModule.createCalendarEvent('testName', 'testLocation');
+    CalendarModule.createCalendarEvent(
+      '================',
+      'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    );
+  };
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -71,7 +82,9 @@ const App: () => Node = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <View />
+        <View>
+          <Button title="click to call native" onPress={callNative} />
+        </View>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

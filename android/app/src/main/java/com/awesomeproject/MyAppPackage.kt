@@ -1,4 +1,5 @@
 package com.awesomeproject
+
 import android.view.View
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule

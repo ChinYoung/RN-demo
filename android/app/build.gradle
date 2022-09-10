@@ -247,9 +247,11 @@ android {
         }
     }
 }
-
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    // implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
